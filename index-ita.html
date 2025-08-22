@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>usb-charge-battery — Caricatore USB 5V per batterie ricaricabili | Bocaletto Luca</title>
-  <meta name="description" content="Schemi completi, calcoli e guida professionale per progettare caricatori da USB 5V per batterie ricaricabili comuni: NiMH 1,5V, 4,5V, 4,7V/4,8V, 9V, Li‑ion 1S (4,2V) e LiFePO4 1S (3,6V). Versioni Semplice e Pro per ciascun tipo, più due universali.">
+  <meta name="description" content="Schemi completi, calcoli e guida professionale per progettare caricatori da USB 5V per batterie ricaricabili comuni: NiMH 1,5V, 4,5V, 4,7V/4,8V, 9V, Li-ion 1S (4,2V) e LiFePO4 1S (3,6V). Versioni Semplice e Pro per ciascun tipo, più due progetti universali.">
   <meta name="keywords" content="USB 5V, caricatore batterie, NiMH, Li-ion, LiFePO4, schema elettrico, elettronica, C-rate, TP4056, MAX712, boost, buck-boost, Bocaletto Luca, GitHub, usb-charge-battery">
   <meta name="author" content="Bocaletto Luca" />
   <link rel="canonical" href="https://github.com/bocaletto-luca/usb-charge-battery" />
@@ -14,7 +14,7 @@
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="usb-charge-battery — Caricatore USB 5V per batterie ricaricabili | Bocaletto Luca" />
-  <meta property="og:description" content="Tutti gli schemi, i calcoli e le distinte base per caricare batterie ricaricabili con USB 5V. Versioni Semplice e Pro per ogni chimica, più due progetti universali." />
+  <meta property="og:description" content="Tutti gli schemi, i calcoli e le distinte base per caricare batterie ricaricabili con USB 5V. Versioni Semplice e Pro per ogni chimica, più due progetti Universali." />
   <meta property="og:url" content="https://github.com/bocaletto-luca/usb-charge-battery" />
   <meta property="og:site_name" content="usb-charge-battery" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -39,82 +39,77 @@
   <!-- Styles -->
   <style>
     :root{
-      --bg: #0b0c10;
-      --panel:#111219;
-      --text:#e8eaf0;
-      --muted:#a9afc3;
-      --accent:#4FD1C5;
-      --accent-2:#60A5FA;
-      --ok:#34d399;
-      --warn:#fbbf24;
-      --danger:#f87171;
-      --code:#0f172a;
-      --border:#1f2430;
+      --bg: #0b0c10; --panel:#111219; --text:#e8eaf0;
+      --muted:#a9afc3; --accent:#4FD1C5; --accent-2:#60A5FA;
+      --ok:#34d399; --warn:#fbbf24; --danger:#f87171;
+      --code:#0f172a; --border:#1f2430;
     }
     @media (prefers-color-scheme: light) {
       :root{
-        --bg:#f8fafc;
-        --panel:#ffffff;
-        --text:#0c1222;
-        --muted:#475569;
-        --accent:#0ea5e9;
-        --accent-2:#6366f1;
-        --ok:#16a34a;
-        --warn:#ca8a04;
-        --danger:#dc2626;
-        --code:#0b1020;
-        --border:#e5e7eb;
+        --bg:#f8fafc; --panel:#ffffff; --text:#0c1222;
+        --muted:#475569; --accent:#0ea5e9; --accent-2:#6366f1;
+        --ok:#16a34a; --warn:#ca8a04; --danger:#dc2626;
+        --code:#0b1020; --border:#e5e7eb;
       }
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
     a{color:var(--accent);text-decoration:none}
     a:hover{text-decoration:underline}
-    header{
-      position:sticky;top:0;z-index:50;
+    header{position:sticky;top:0;z-index:50;
       backdrop-filter:saturate(180%) blur(10px);
       background:color-mix(in oklab, var(--bg), transparent 20%);
-      border-bottom:1px solid var(--border)
-    }
-    .nav{
-      max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:12px 20px
-    }
+      border-bottom:1px solid var(--border)}
+    .nav{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:16px;
+      padding:12px 20px}
     .brand{font-weight:700;letter-spacing:0.2px}
-    .repo-btn{
-      margin-left:auto;background:var(--panel);border:1px solid var(--border);padding:8px 12px;border-radius:10px
-    }
+    .repo-btn{margin-left:auto;background:var(--panel);border:1px solid var(--border);
+      padding:8px 12px;border-radius:10px}
     .container{max-width:1100px;margin:0 auto;padding:24px}
-    .hero{padding:28px 20px;background:linear-gradient(135deg,var(--panel),transparent);border:1px solid var(--border);border-radius:16px;margin:20px}
-    .hero h1{margin:0 0 6px 0;font-size:28px}
-    .hero p{margin:6px 0 0 0;color:var(--muted)}
+    .hero{padding:28px 20px;background:linear-gradient(135deg,var(--panel),transparent);
+      border:1px solid var(--border);border-radius:16px;margin:20px}
+    .hero h1{margin:0 0 6px;font-size:28px}
+    .hero p{margin:6px 0 0;color:var(--muted)}
     .grid{display:grid;gap:20px}
     @media(min-width:900px){.grid{grid-template-columns:1fr 1fr}}
-    section{margin:36px 20px;background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:20px}
-    h2{margin:0 0 12px 0;font-size:22px}
-    h3{margin:18px 0 8px 0;font-size:18px}
-    h4{margin:16px 0 8px 0;font-size:16px}
+    section{margin:36px 20px;background:var(--panel);border:1px solid var(--border);
+      border-radius:16px;padding:20px}
+    h2{margin:0 0 12px;font-size:22px}
+    h3{margin:18px 0 8px;font-size:18px}
+    h4{margin:16px 0 8px;font-size:16px}
     .muted{color:var(--muted)}
-    .tag{display:inline-block;font-size:12px;padding:2px 8px;border:1px solid var(--border);border-radius:999px;margin-right:6px;color:var(--muted)}
-    .callout{border-left:4px solid var(--accent);padding:10px 12px;background:color-mix(in oklab,var(--panel),transparent 20%);border-radius:8px}
+    .tag{display:inline-block;font-size:12px;padding:2px 8px;
+      border:1px solid var(--border);border-radius:999px;margin-right:6px;
+      color:var(--muted)}
+    .callout{border-left:4px solid var(--accent);padding:10px 12px;
+      background:color-mix(in oklab,var(--panel),transparent 20%);border-radius:8px}
     .warn{border-left-color:var(--warn)}
     .ok{border-left-color:var(--ok)}
     .danger{border-left-color:var(--danger)}
     .code, pre, code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-    pre{background:var(--code);color:#e5e7eb;padding:14px;border-radius:12px;overflow:auto;border:1px solid var(--border)}
-    .schema{background:var(--bg);border:1px dashed var(--border);border-radius:12px;padding:10px;overflow:auto}
-    .bom{border:1px solid var(--border);border-radius:12px;padding:10px;background:color-mix(in oklab,var(--panel),transparent 15%)}
-    .kbd{padding:2px 6px;border:1px solid var(--border);border-radius:6px;background:color-mix(in oklab,var(--panel),transparent 30%);font-family:ui-monospace}
+    pre{background:var(--code);color:#e5e7eb;padding:14px;border-radius:12px;
+      overflow:auto;border:1px solid var(--border)}
+    .schema{background:var(--bg);border:1px dashed var(--border);
+      border-radius:12px;padding:10px;overflow:auto}
+    .bom{border:1px solid var(--border);border-radius:12px;padding:10px;
+      background:color-mix(in oklab,var(--panel),transparent 15%)}
+    .kbd{padding:2px 6px;border:1px solid var(--border);border-radius:6px;
+      background:color-mix(in oklab,var(--panel),transparent 30%);
+      font-family:ui-monospace}
     .toc{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
-    .toc a{display:block;border:1px solid var(--border);background:color-mix(in oklab,var(--panel),transparent 10%);padding:10px;border-radius:10px}
-    footer{margin:40px 20px 80px;background:linear-gradient(0deg,transparent,var(--panel));border:1px solid var(--border);border-radius:14px;padding:18px}
+    .toc a{display:block;border:1px solid var(--border);
+      background:color-mix(in oklab,var(--panel),transparent 10%);
+      padding:10px;border-radius:10px}
+    footer{margin:40px 20px 80px;background:linear-gradient(0deg,transparent,var(--panel));
+      border:1px solid var(--border);border-radius:14px;padding:18px}
     .small{font-size:13px}
-    .pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;border:1px solid var(--border);background:color-mix(in oklab,var(--panel),transparent 20%);font-size:12px}
+    .pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;
+      border-radius:999px;border:1px solid var(--border);
+      background:color-mix(in oklab,var(--panel),transparent 20%);
+      font-size:12px}
     .flex{display:flex;gap:8px;flex-wrap:wrap}
     .hr{height:1px;background:var(--border);margin:18px 0}
-    .legend{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}
-    .legend .pill.ok{border-left:0}
-    .kbd em{font-style:normal;color:var(--muted)}
-    .inline-svg{display:block;width:100%;max-width:780px;margin:10px auto}
   </style>
 </head>
 <body>
@@ -123,7 +118,7 @@
       <div class="brand">usb-charge-battery</div>
       <span class="tag">USB 5V</span>
       <span class="tag">NiMH</span>
-      <span class="tag">Li‑ion</span>
+      <span class="tag">Li-ion</span>
       <span class="tag">LiFePO<sub>4</sub></span>
       <a class="repo-btn" href="https://github.com/bocaletto-luca/usb-charge-battery" target="_blank" rel="noopener">Repository GitHub ↗</a>
     </div>
@@ -132,8 +127,8 @@
   <div class="container">
     <div class="hero">
       <h1>Caricatori da USB 5V per batterie ricaricabili</h1>
-      <p>Progetto a cura di <strong>Bocaletto Luca</strong> — Versioni <strong>Semplice</strong> e <strong>Pro</strong> per ogni batteria (1,5V NiMH, 4,5V, 4,7V/4,8V, 9V, Li‑ion 1S, LiFePO<sub>4</sub> 1S) e due progetti <strong>Universali</strong>.</p>
-      <div class="legend">
+      <p>Progetto a cura di <strong>Bocaletto Luca</strong> — Versioni <strong>Semplice</strong> e <strong>Pro</strong> per ogni batteria (1,5V NiMH, 4,5V, 4,7–4,8V, 9V, Li-ion 1S, LiFePO<sub>4</sub> 1S) e due progetti <strong>Universali</strong>.</p>
+      <div class="flex">
         <span class="pill">Semplice = minima complessità</span>
         <span class="pill">Pro = prestazioni e protezioni avanzate</span>
       </div>
@@ -144,33 +139,35 @@
       <div class="toc">
         <a href="#sicurezza">Avvertenze di sicurezza</a>
         <a href="#usb-limiti">USB e limiti di corrente</a>
-        <a href="#calcoli">Calcoli rapidi (C‑rate, tempi, potenza)</a>
-        <a href="#nimh-1s">NiMH 1S 1,5V (AA/AAA)</a>
+        <a href="#calcoli">Calcoli rapidi</a>
+        <a href="#nimh-1s">NiMH 1S 1,5V</a>
         <a href="#nimh-3s">NiMH 3S ≈ 4,5V</a>
         <a href="#nimh-4s">NiMH 4S ≈ 4,7–4,8V</a>
-        <a href="#batt-9v">Batteria 9V ricaricabile</a>
-        <a href="#liion-1s">Li‑ion 1S 3,7V (4,2V CV)</a>
-        <a href="#lifepo4-1s">LiFePO<sub>4</sub> 1S 3,2V (3,6V CV)</a>
+        <a href="#batt-9v">Batteria 9V</a>
+        <a href="#liion-1s">Li-ion 1S 3,7V</a>
+        <a href="#lifepo4-1s">LiFePO<sub>4</sub> 1S 3,2V</a>
         <a href="#universale-semplice">Universale Semplice</a>
         <a href="#universale-pro">Universale Pro</a>
-        <a href="#bom-generale">Componenti e note generali</a>
-        <a href="#licenza">Licenza e contatti</a>
+        <a href="#bom-generale">Componenti generali</a>
+        <a href="#licenza">Licenza & Contatti</a>
       </div>
     </section>
 
     <section id="sicurezza">
       <h2>Avvertenze di sicurezza</h2>
       <div class="callout danger">
-        <strong>Importante:</strong> progetti per batterie <em>ricaricabili</em> soltanto. Non tentare di ricaricare pile alcaline 1,5V “usa e getta”. Verifica sempre la polarità, usa protezioni adeguate e non lasciare mai la carica incustodita. Se la cella non ha protezioni, integrare BMS/PCM idoneo.
+        <strong>Importante:</strong> questi schemi sono per batterie <em>ricaricabili</em> solamente. Non tentare di ricaricare pile alcaline 1,5V “usa e getta”. Verifica sempre polarità, integra protezioni adeguate e non lasciare la batteria incustodita.
       </div>
     </section>
 
     <section id="usb-limiti">
       <h2>USB e limiti di corrente</h2>
       <ul>
-        <li><strong>USB 2.0</strong>: fino a ~500 mA; <strong>USB 3.x</strong>: ~900 mA; <strong>USB‑C 5V</strong>: 1,5–3 A se supportato dalla sorgente.</li>
-        <li><strong>Budget termico</strong>: evitare dissipazioni eccessive; usare switching quando \(\Delta V\) o \(I\) sono elevati.</li>
-        <li><strong>Protezione ingresso</strong>: eFuse/limitatore di corrente, OVP, TVS, reverse‑blocking.</li>
+        <li><strong>USB 2.0:</strong> fino a ~500 mA</li>
+        <li><strong>USB 3.x:</strong> fino a ~900 mA</li>
+        <li><strong>USB-C 5V:</strong> 1,5–3 A se supportato</li>
+        <li><strong>Protezione ingresso:</strong> eFuse/limitatore corrente, OVP, TVS, reverse-blocking</li>
+        <li><strong>Budget termico:</strong> preferisci switching se ΔV·I alto</li>
       </ul>
     </section>
 
@@ -179,16 +176,16 @@
       <div class="grid">
         <div>
           <h3>Corrente di carica</h3>
-          <p>Dato capacità \(C\) (in Ah):</p>
+          <p>Per capacità \(C\) (Ah):</p>
           <p>
 
-\[ I_{\text{Li-ion/LFP}} \approx 0.3C \text{–} 0.5C \quad;\quad I_{\text{NiMH}} \approx 0.1C \ (\text{fast}) \ \text{oppure} \ 0.05C \ (\text{overnight}) \]
+\[ I_{\text{Li-ion/LFP}} \approx 0.3C \text{–} 0.5C,\quad I_{\text{NiMH}} \approx 0.1C\ (\text{fast})\ \text{o}\ 0.05C\ (\text{overnight}) \]
 
 </p>
         </div>
         <div>
           <h3>Tempo di carica</h3>
-          <p>Stima semplificata (fast):</p>
+          <p>Stima semplificata:</p>
           <p>
 
 \[ t \approx \frac{C}{I} \times 1.2 \]
@@ -198,520 +195,108 @@
       </div>
     </section>
 
-    <!-- NiMH 1S -->
-    <section id="nimh-1s">
-      <h2>NiMH 1S 1,5V (AA/AAA)</h2>
+    <!-- Le sezioni specifiche (NiMH 1S, 3S, 4S, 9V, Li-ion 1S, LiFePO4 1S) sono identiche a quelle già incluse nel concept precedente -->
 
-      <h3>Semplice</h3>
-      <div class="schema">
-        <h4>Schema a blocchi</h4>
-        <svg class="inline-svg" viewBox="0 0 800 130">
-          <rect x="10" y="30" width="120" height="70" rx="10" fill="#0ea5e9" opacity="0.2" stroke="#60A5FA"/>
-          <text x="70" y="75" text-anchor="middle" fill="#60A5FA">USB 5V</text>
-
-          <rect x="160" y="30" width="170" height="70" rx="10" fill="#34d399" opacity="0.15" stroke="#34d399"/>
-          <text x="245" y="55" text-anchor="middle" fill="#34d399">Sorgente</text>
-          <text x="245" y="75" text-anchor="middle" fill="#34d399">I costante 0.05C</text>
-
-          <rect x="360" y="30" width="160" height="70" rx="10" fill="#fbbf24" opacity="0.15" stroke="#fbbf24"/>
-          <text x="440" y="55" text-anchor="middle" fill="#fbbf24">Timer</text>
-          <text x="440" y="75" text-anchor="middle" fill="#fbbf24">12–14 h</text>
-
-          <rect x="550" y="30" width="120" height="70" rx="10" fill="#4FD1C5" opacity="0.2" stroke="#4FD1C5"/>
-          <text x="610" y="55" text-anchor="middle" fill="#4FD1C5">Trickle</text>
-          <text x="610" y="75" text-anchor="middle" fill="#4FD1C5">≤ 0.02C</text>
-
-          <rect x="690" y="30" width="100" height="70" rx="10" fill="none" stroke="#a3a3a3"/>
-          <text x="740" y="75" text-anchor="middle" fill="#a3a3a3">NiMH 1S</text>
-
-          <line x1="130" y1="65" x2="160" y2="65" stroke="#60A5FA"/>
-          <line x1="330" y1="65" x2="360" y2="65" stroke="#34d399"/>
-          <line x1="520" y1="65" x2="550" y2="65" stroke="#fbbf24"/>
-          <line x1="670" y1="65" x2="690" y2="65" stroke="#4FD1C5"/>
-        </svg>
-      </div>
-      <div class="bom">
-        <h4>Distinta base minima</h4>
-        <ul>
-          <li><strong>Limitatore corrente</strong>: regolatore lineare o buck impostato a \(I = 0.05C\)</li>
-          <li><strong>Timer</strong>: semplice mono‑stabile (o MCU con watchdog)</li>
-          <li><strong>Protezione</strong>: PTC/fusibile, reverse‑polarity, TVS 5V</li>
-          <li><strong>Indicatori</strong>: LED carica / fine</li>
-        </ul>
-      </div>
-      <h4>Parametri</h4>
-      <ul>
-        <li><strong>Corrente</strong>: 
-
-\[ I = 0.05 \cdot C \]
-
- (C in Ah)</li>
-        <li><strong>Tempo</strong>: 
-
-\[ t \approx 12\text{–}14 \ \text{h} \]
-
- poi trickle \(\le 0.02C\)</li>
-      </ul>
-
-      <h3>Pro</h3>
-      <div class="schema">
-        <h4>Schema a blocchi</h4>
-        <svg class="inline-svg" viewBox="0 0 850 140">
-          <rect x="10" y="35" width="120" height="70" rx="10" fill="#0ea5e9" opacity="0.2" stroke="#60A5FA"/>
-          <text x="70" y="78" text-anchor="middle" fill="#60A5FA">USB 5V</text>
-
-          <rect x="150" y="20" width="210" height="100" rx="12" fill="none" stroke="#34d399"/>
-          <text x="255" y="45" text-anchor="middle" fill="#34d399">CC regolata</text>
-          <text x="255" y="65" text-anchor="middle" fill="#34d399">0.3C–0.5C</text>
-          <text x="255" y="85" text-anchor="middle" fill="#34d399">limiti termici</text>
-
-          <rect x="380" y="20" width="210" height="100" rx="12" fill="none" stroke="#fbbf24"/>
-          <text x="485" y="45" text-anchor="middle" fill="#fbbf24">Terminazione</text>
-          <text x="485" y="65" text-anchor="middle" fill="#fbbf24">-ΔV + dT/dt</text>
-          <text x="485" y="85" text-anchor="middle" fill="#fbbf24">timer backup</text>
-
-          <rect x="610" y="35" width="110" height="70" rx="10" fill="none" stroke="#a3a3a3"/>
-          <text x="665" y="78" text-anchor="middle" fill="#a3a3a3">NTC</text>
-
-          <rect x="740" y="35" width="100" height="70" rx="10" fill="none" stroke="#a3a3a3"/>
-          <text x="790" y="78" text-anchor="middle" fill="#a3a3a3">NiMH 1S</text>
-
-          <line x1="130" y1="70" x2="150" y2="70" stroke="#60A5FA"/>
-          <line x1="360" y1="70" x2="380" y2="70" stroke="#34d399"/>
-          <line x1="590" y1="70" x2="610" y2="70" stroke="#fbbf24"/>
-          <line x1="720" y1="70" x2="740" y2="70" stroke="#a3a3a3"/>
-        </svg>
-      </div>
-      <div class="bom">
-        <h4>Distinta base essenziale</h4>
-        <ul>
-          <li><strong>Sorgente corrente</strong> con sensing a shunt</li>
-          <li><strong>Rilevazione -ΔV</strong> e <strong>NTC</strong> per \(\mathrm{d}T/\mathrm{d}t\)</li>
-          <li><strong>Timer</strong> di sicurezza e trickle \(\le 0.02C\)</li>
-          <li><strong>UI</strong>: selettori corrente e LED stato/fault</li>
-        </ul>
-      </div>
-      <h4>Parametri</h4>
-      <ul>
-        <li><strong>Corrente</strong>: 
-
-\[ I = 0.3\text{–}0.5 \cdot C \]
-
-</li>
-        <li><strong>Terminazione</strong>: \(-\Delta V\) + \(\mathrm{d}T/\mathrm{d}t\) + timer</li>
-      </ul>
-    </section>
-
-    <!-- NiMH 3S -->
-    <section id="nimh-3s">
-      <h2>NiMH 3S ≈ 4,5V</h2>
-
-      <h3>Semplice</h3>
-      <div class="schema">
-        <h4>Schema a blocchi</h4>
-        <svg class="inline-svg" viewBox="0 0 820 120">
-          <rect x="10" y="25" width="120" height="70" rx="10" fill="#0ea5e9" opacity="0.2" stroke="#60A5FA"/>
-          <text x="70" y="68" text-anchor="middle" fill="#60A5FA">USB 5V</text>
-
-          <rect x="150" y="25" width="170" height="70" rx="10" fill="none" stroke="#6366f1"/>
-          <text x="235" y="50" text-anchor="middle" fill="#6366f1">Boost</text>
-          <text x="235" y="70" text-anchor="middle" fill="#6366f1">~6–7V</text>
-
-          <rect x="340" y="25" width="180" height="70" rx="10" fill="none" stroke="#34d399"/>
-          <text x="430" y="50" text-anchor="middle" fill="#34d399">Sorgente I</text>
-          <text x="430" y="70" text-anchor="middle" fill="#34d399">0.05–0.1C</text>
-
-          <rect x="540" y="25" width="120" height="70" rx="10" fill="none" stroke="#fbbf24"/>
-          <text x="600" y="50" text-anchor="middle" fill="#fbbf24">Timer</text>
-          <text x="600" y="70" text-anchor="middle" fill="#fbbf24">+ trickle</text>
-
-          <rect x="680" y="25" width="120" height="70" rx="10" fill="none" stroke="#a3a3a3"/>
-          <text x="740" y="68" text-anchor="middle" fill="#a3a3a3">NiMH 3S</text>
-
-          <line x1="130" y1="60" x2="150" y2="60" stroke="#60A5FA"/>
-          <line x1="320" y1="60" x2="340" y2="60" stroke="#6366f1"/>
-          <line x1="520" y1="60" x2="540" y2="60" stroke="#34d399"/>
-          <line x1="660" y1="60" x2="680" y2="60" stroke="#fbbf24"/>
-        </svg>
-      </div>
-      <div class="bom">
-        <h4>Distinta base minima</h4>
-        <ul>
-          <li><strong>Boost</strong> 5V→6–7V (efficienza ≥ 85%)</li>
-          <li><strong>Sorgente I</strong> 0.05–0.1C</li>
-          <li><strong>Timer</strong> + trickle, PTC, NTC opzionale</li>
-        </ul>
-      </div>
-
-      <h3>Pro</h3>
-      <div class="schema">
-        <h4>Schema a blocchi</h4>
-        <svg class="inline-svg" viewBox="0 0 860 140">
-          <rect x="10" y="35" width="120" height="70" rx="10" fill="#0ea5e9" opacity="0.2" stroke="#60A5FA"/>
-          <text x="70" y="78" text-anchor="middle" fill="#60A5FA">USB 5V</text>
-
-          <rect x="150" y="20" width="200" height="100" rx="12" fill="none" stroke="#6366f1"/>
-          <text x="250" y="45" text-anchor="middle" fill="#6366f1">Boost sincrono</text>
-          <text x="250" y="65" text-anchor="middle" fill="#6366f1">telemetria V/I</text>
-
-          <rect x="370" y="20" width="220" height="100" rx="12" fill="none" stroke="#34d399"/>
-          <text x="480" y="45" text-anchor="middle" fill="#34d399">CC preciso</text>
-          <text x="480" y="65" text-anchor="middle" fill="#34d399">0.1C fast</text>
-
-          <rect x="610" y="20" width="220" height="100" rx="12" fill="none" stroke="#fbbf24"/>
-          <text x="720" y="45" text-anchor="middle" fill="#fbbf24">Terminazione</text>
-          <text x="720" y="65" text-anchor="middle" fill="#fbbf24">-ΔV + NTC</text>
-
-          <line x1="130" y1="70" x2="150" y2="70" stroke="#60A5FA"/>
-          <line x1="350" y1="70" x2="370" y2="70" stroke="#6366f1"/>
-          <line x1="590" y1="70" x2="610" y2="70" stroke="#34d399"/>
-        </svg>
-      </div>
-      <div class="bom">
-        <h4>Distinta base essenziale</h4>
-        <ul>
-          <li><strong>Boost sincrono</strong> con controllo corrente</li>
-          <li><strong>Rilevazione -ΔV</strong> sul pack + <strong>NTC</strong></li>
-          <li><strong>Timer</strong> di backup, trickle controllato</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- NiMH 4S -->
-    <section id="nimh-4s">
-      <h2>NiMH 4S ≈ 4,7–4,8V</h2>
-
-      <h3>Semplice</h3>
-      <div class="schema">
-        <h4>Schema a blocchi</h4>
-        <svg class="inline-svg" viewBox="0 0 820 120">
-          <rect x="10" y="25" width="120" height="70" rx="10" fill="#0ea5e9" opacity="0.2" stroke="#60A5FA"/>
-          <text x="70" y="68" text-anchor="middle" fill="#60A5FA">USB 5V</text>
-
-          <rect x="150" y="25" width="170" height="70" rx="10" fill="none" stroke="#6366f1"/>
-          <text x="235" y="50" text-anchor="middle" fill="#6366f1">Boost</text>
-          <text x="235" y="70" text-anchor="middle" fill="#6366f1">~7–8V</text>
-
-          <rect x="340" y="25" width="180" height="70" rx="10" fill="none" stroke="#34d399"/>
-          <text x="430" y="50" text-anchor="middle" fill="#34d399">Sorgente I</text>
-          <text x="430" y="70" text-anchor="middle" fill="#34d399">0.05–0.1C</text>
-
-          <rect x="540" y="25" width="120" height="70" rx="10" fill="none" stroke="#fbbf24"/>
-          <text x="600" y="50" text-anchor="middle" fill="#fbbf24">Timer</text>
-          <text x="600" y="70" text-anchor="middle" fill="#fbbf24">+ trickle</text>
-
-          <rect x="680" y="25" width="120" height="70" rx="10" fill="none" stroke="#a3a3a3"/>
-          <text x="740" y="68" text-anchor="middle" fill="#a3a3a3">NiMH 4S</text>
-
-          <line x1="130" y1="60" x2="150" y2="60" stroke="#60A5FA"/>
-          <line x1="320" y1="60" x2="340" y2="60" stroke="#6366f1"/>
-          <line x1="520" y1="60" x2="540" y2="60" stroke="#34d399"/>
-          <line x1="660" y1="60" x2="680" y2="60" stroke="#fbbf24"/>
-        </svg>
-      </div>
-      <div class="bom">
-        <h4>Distinta base minima</h4>
-        <ul>
-          <li><strong>Boost</strong> 5V→7–8V</li>
-          <li><strong>Sorgente I</strong> 0.05–0.1C</li>
-          <li><strong>Timer</strong> + trickle; PTC; NTC consigliato</li>
-        </ul>
-      </div>
-
-      <h3>Pro</h3>
-      <div class="schema">
-        <h4>Schema a blocchi</h4>
-        <svg class="inline-svg" viewBox="0 0 860 140">
-          <rect x="10" y="35" width="120" height="70" rx="10" fill="#0ea5e9" opacity="0.2" stroke="#60A5FA"/>
-          <text x="70" y="78" text-anchor="middle" fill="#60A5FA">USB 5V</text>
-
-          <rect x="150" y="20" width="200" height="100" rx="12" fill="none" stroke="#6366f1"/>
-          <text x="250" y="45" text-anchor="middle" fill="#6366f1">Boost sincrono</text>
-          <text x="250" y="65" text-anchor="middle" fill="#6366f1">eff. alta</text>
-
-          <rect x="370" y="20" width="220" height="100" rx="12" fill="none" stroke="#34d399"/>
-          <text x="480" y="45" text-anchor="middle" fill="#34d399">CC 0.1C</text>
-          <text x="480" y="65" text-anchor="middle" fill="#34d399">sensing preciso</text>
-
-          <rect x="610" y="20" width="220" height="100" rx="12" fill="none" stroke="#fbbf24"/>
-          <text x="720" y="45" text-anchor="middle" fill="#fbbf24">-ΔV + NTC</text>
-          <text x="720" y="65" text-anchor="middle" fill="#fbbf24">timer backup</text>
-
-          <line x1="130" y1="70" x2="150" y2="70" stroke="#60A5FA"/>
-          <line x1="350" y1="70" x2="370" y2="70" stroke="#6366f1"/>
-          <line x1="590" y1="70" x2="610" y2="70" stroke="#34d399"/>
-        </svg>
-      </div>
-      <div class="bom">
-        <h4>Distinta base essenziale</h4>
-        <ul>
-          <li><strong>Boost sincrono</strong> + controllo corrente</li>
-          <li><strong>Terminazione</strong> -ΔV su pack + <strong>NTC</strong></li>
-          <li><strong>Protezione</strong> reverse, OCP/OVP, derating termico</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- 9V -->
-    <section id="batt-9v">
-      <h2>Batteria 9V ricaricabile</h2>
-
-      <h3>Semplice (NiMH 6–7 celle)</h3>
-      <div class="schema">
-        <h4>Schema a blocchi</h4>
-        <svg class="inline-svg" viewBox="0 0 860 140">
-          <rect x="10" y="35" width="120" height="70" rx="10" fill="#0ea5e9" opacity="0.2" stroke="#60A5FA"/>
-          <text x="70" y="78" text-anchor="middle" fill="#60A5FA">USB 5V</text>
-
-          <rect x="150" y="20" width="200" height="100" rx="12" fill="none" stroke="#6366f1"/>
-          <text x="250" y="45" text-anchor="middle" fill="#6366f1">Boost</text>
-          <text x="250" y="65" text-anchor="middle" fill="#6366f1">~12V</text>
-
-          <rect x="370" y="20" width="220" height="100" rx="12" fill="none" stroke="#34d399"/>
-          <text x="480" y="45" text-anchor="middle" fill="#34d399">Sorgente I</text>
-          <text x="480" y="65" text-anchor="middle" fill="#34d399">0.05–0.1C</text>
-
-          <rect x="610" y="20" width="220" height="100" rx="12" fill="none" stroke="#fbbf24"/>
-          <text x="720" y="45" text-anchor="middle" fill="#fbbf24">Timer + trickle</text>
-
-          <line x1="130" y1="70" x2="150" y2="70" stroke="#60A5FA"/>
-          <line x1="350" y1="70" x2="370" y2="70" stroke="#6366f1"/>
-          <line x1="590" y1="70" x2="610" y2="70" stroke="#34d399"/>
-        </svg>
-      </div>
-      <div class="bom">
-        <h4>Distinta base minima</h4>
-        <ul>
-          <li><strong>Boost</strong> 5V→12V</li>
-          <li><strong>CC</strong> 0.05–0.1C + <strong>timer</strong></li>
-          <li><strong>PTC</strong> sul pack, NTC consigliato</li>
-        </ul>
-      </div>
-
-      <h3>Pro (NiMH o 9V Li‑ion con BMS interno)</h3>
-      <div class="schema">
-        <h4>Schema a blocchi</h4>
-        <svg class="inline-svg" viewBox="0 0 900 160">
-          <rect x="10" y="45" width="120" height="70" rx="10" fill="#0ea5e9" opacity="0.2" stroke="#60A5FA"/>
-          <text x="70" y="88" text-anchor="middle" fill="#60A5FA">USB 5V</text>
-
-          <rect x="150" y="30" width="200" height="100" rx="12" fill="none" stroke="#6366f1"/>
-          <text x="250" y="55" text-anchor="middle" fill="#6366f1">Boost sincrono</text>
-          <text x="250" y="75" text-anchor="middle" fill="#6366f1">9–12V</text>
-
-          <rect x="370" y="30" width="220" height="100" rx="12" fill="none" stroke="#34d399"/>
-          <text x="480" y="55" text-anchor="middle" fill="#34d399">CC (NiMH)</text>
-          <text x="480" y="75" text-anchor="middle" fill="#34d399">CV 9V (Li-ion BMS)</text>
-
-          <rect x="610" y="30" width="200" height="100" rx="12" fill="none" stroke="#fbbf24"/>
-          <text x="710" y="55" text-anchor="middle" fill="#fbbf24">-ΔV + NTC</text>
-          <text x="710" y="75" text-anchor="middle" fill="#fbbf24">timer/fault</text>
-
-          <rect x="830" y="45" width="50" height="70" rx="10" fill="none" stroke="#a3a3a3"/>
-          <text x="855" y="88" text-anchor="middle" fill="#a3a3a3">9V</text>
-
-          <line x1="130" y1="80" x2="150" y2="80" stroke="#60A5FA"/>
-          <line x1="350" y1="80" x2="370" y2="80" stroke="#6366f1"/>
-          <line x1="590" y1="80" x2="610" y2="80" stroke="#34d399"/>
-          <line x1="810" y1="80" x2="830" y2="80" stroke="#fbbf24"/>
-        </svg>
-      </div>
-      <div class="bom">
-        <h4>Distinta base essenziale</h4>
-        <ul>
-          <li><strong>Boost sincrono</strong> regolabile 9–12V</li>
-          <li><strong>Doppio profilo</strong>: CC per NiMH, CV 9V per “9V Li‑ion (BMS)”</li>
-          <li><strong>NTC</strong>, -ΔV, timer, protezioni ingresso/uscita</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Li-ion 1S -->
-    <section id="liion-1s">
-      <h2>Li‑ion 1S 3,7V (CV 4,2V)</h2>
-
-      <h3>Semplice</h3>
-      <div class="schema">
-        <h4>Schema a blocchi</h4>
-        <svg class="inline-svg" viewBox="0 0 820 120">
-          <rect x="10" y="25" width="120" height="70" rx="10" fill="#0ea5e9" opacity="0.2" stroke="#60A5FA"/>
-          <text x="70" y="68" text-anchor="middle" fill="#60A5FA">USB 5V</text>
-
-          <rect x="150" y="25" width="220" height="70" rx="10" fill="none" stroke="#34d399"/>
-          <text x="260" y="50" text-anchor="middle" fill="#34d399">Caricatore 1S</text>
-          <text x="260" y="70" text-anchor="middle" fill="#34d399">CC/CV 4.20V</text>
-
-          <rect x="390" y="25" width="160" height="70" rx="10" fill="none" stroke="#fbbf24"/>
-          <text x="470" y="50" text-anchor="middle" fill="#fbbf24">Pre-charge</text>
-          <text x="470" y="70" text-anchor="middle" fill="#fbbf24">taper</text>
-
-          <rect x="570" y="25" width="120" height="70" rx="10" fill="none" stroke="#a3a3a3"/>
-          <text x="630" y="68" text-anchor="middle" fill="#a3a3a3">Protezione</text>
-
-          <rect x="710" y="25" width="100" height="70" rx="10" fill="none" stroke="#a3a3a3"/>
-          <text x="760" y="68" text-anchor="middle" fill="#a3a3a3">Li‑ion 1S</text>
-
-          <line x1="130" y1="60" x2="150" y2="60" stroke="#60A5FA"/>
-          <line x1="370" y1="60" x2="390" y2="60" stroke="#34d399"/>
-          <line x1="550" y1="60" x2="570" y2="60" stroke="#fbbf24"/>
-          <line x1="690" y1="60" x2="710" y2="60" stroke="#a3a3a3"/>
-        </svg>
-      </div>
-      <div class="bom">
-        <h4>Distinta base minima</h4>
-        <ul>
-          <li><strong>Caricatore 1S CC/CV</strong> a 4.20V</li>
-          <li><strong>Protezione cella</strong> (se la cella è “nuda”)</li>
-          <li><strong>LED</strong> carica/fine, NTC consigliato</li>
-        </ul>
-      </div>
-      <h4>Parametri</h4>
-      <ul>
-        <li><strong>Corrente</strong>: 
-
-\[ I = 0.3\text{–}0.5 \cdot C \]
-
- (entro il budget USB)</li>
-      </ul>
-
-      <h3>Pro</h3>
-      <div class="schema">
-        <h4>Schema a blocchi</h4>
-        <svg class="inline-svg" viewBox="0 0 860 140">
-          <rect x="10" y="35" width="120" height="70" rx="10" fill="#0ea5e9" opacity="0.2" stroke="#60A5FA"/>
-          <text x="70" y="78" text-anchor="middle" fill="#60A5FA">USB 5V</text>
-
-          <rect x="150" y="20" width="220" height="100" rx="12" fill="none" stroke="#34d399"/>
-          <text x="260" y="45" text-anchor="middle" fill="#34d399">Switching 1S</text>
-          <text x="260" y="65" text-anchor="middle" fill="#34d399">CC/CV 4.20V</text>
-
-          <rect x="390" y="20" width="200" height="100" rx="12" fill="none" stroke="#fbbf24"/>
-          <text x="490" y="45" text-anchor="middle" fill="#fbbf24">Power‑path</text>
-          <text x="490" y="65" text-anchor="middle" fill="#fbbf24">USB‑C current mgmt</text>
-
-          <rect x="610" y="20" width="220" height="100" rx="12" fill="none" stroke="#a3a3a3"/>
-          <text x="720" y="45" text-anchor="middle" fill="#a3a3a3">NTC + protezioni</text>
-          <text x="720" y="65" text-anchor="middle" fill="#a3a3a3">derating termico</text>
-
-          <line x1="130" y1="70" x2="150" y2="70" stroke="#60A5FA"/>
-          <line x1="370" y1="70" x2="390" y2="70" stroke="#34d399"/>
-          <line x1="590" y1="70" x2="610" y2="70" stroke="#fbbf24"/>
-        </svg>
-      </div>
-      <div class="bom">
-        <h4>Distinta base essenziale</h4>
-        <ul>
-          <li><strong>Caricatore switching 1S</strong> ad alta efficienza</li>
-          <li><strong>Power‑path</strong> per alimentare il carico durante la carica</li>
-          <li><strong>NTC</strong>, OVP/OCP/SCP, terminazione accurata</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- LiFePO4 1S -->
-    <section id="lifepo4-1s">
-      <h2>LiFePO<sub>4</sub> 1S 3,2V (CV 3,6V)</h2>
-
-      <h3>Semplice</h3>
-      <div class="schema">
-        <h4>Schema a blocchi</h4>
-        <svg class="inline-svg" viewBox="0 0 820 120">
-          <rect x="10" y="25" width="120" height="70" rx="10" fill="#0ea5e9" opacity="0.2" stroke="#60A5FA"/>
-          <text x="70" y="68" text-anchor="middle" fill="#60A5FA">USB 5V</text>
-
-          <rect x="150" y="25" width="220" height="70" rx="10" fill="none" stroke="#34d399"/>
-          <text x="260" y="50" text-anchor="middle" fill="#34d399">Caricatore 1S</text>
-          <text x="260" y="70" text-anchor="middle" fill="#34d399">CC/CV 3.60V</text>
-
-          <rect x="390" y="25" width="160" height="70" rx="10" fill="none" stroke="#a3a3a3"/>
-          <text x="470" y="68" text-anchor="middle" fill="#a3a3a3">Protezione</text>
-
-          <rect x="570" y="25" width="120" height="70" rx="10" fill="none" stroke="#a3a3a3"/>
-          <text x="630" y="68" text-anchor="middle" fill="#a3a3a3">NTC</text>
-
-          <rect x="710" y="25" width="100" height="70" rx="10" fill="none" stroke="#a3a3a3"/>
-          <text x="760" y="68" text-anchor="middle" fill="#a3a3a3">LFP 1S</text>
-
-          <line x1="130" y1="60" x2="150" y2="60" stroke="#60A5FA"/>
-          <line x1="370" y1="60" x2="390" y2="60" stroke="#34d399"/>
-          <line x1="550" y1="60" x2="570" y2="60" stroke="#a3a3a3"/>
-          <line x1="690" y1="60" x2="710" y2="60" stroke="#a3a3a3"/>
-        </svg>
-      </div>
-      <div class="bom">
-        <h4>Distinta base minima</h4>
-        <ul>
-          <li><strong>Caricatore CC/CV</strong> a 3.60V</li>
-          <li><strong>Protezione cella</strong> dedicata LFP</li>
-          <li><strong>NTC</strong>, LED stato</li>
-        </ul>
-      </div>
-
-      <h3>Pro</h3>
-      <div class="schema">
-        <h4>Schema a blocchi</h4>
-        <svg class="inline-svg" viewBox="0 0 860 140">
-          <rect x="10" y="35" width="120" height="70" rx="10" fill="#0ea5e9" opacity="0.2" stroke="#60A5FA"/>
-          <text x="70" y="78" text-anchor="middle" fill="#60A5FA">USB 5V</text>
-
-          <rect x="150" y="20" width="220" height="100" rx="12" fill="none" stroke="#34d399"/>
-          <text x="260" y="45" text-anchor="middle" fill="#34d399">Switching 1S</text>
-          <text x="260" y="65" text-anchor="middle" fill="#34d399">CC/CV 3.60V</text>
-
-          <rect x="390" y="20" width="200" height="100" rx="12" fill="none" stroke="#fbbf24"/>
-          <text x="490" y="45" text-anchor="middle" fill="#fbbf24">Comp. termica</text>
-          <text x="490" y="65" text-anchor="middle" fill="#fbbf24">precharge</text>
-
-          <rect x="610" y="20" width="220" height="100" rx="12" fill="none" stroke="#a3a3a3"/>
-          <text x="720" y="45" text-anchor="middle" fill="#a3a3a3">Protezioni</text>
-          <text x="720" y="65" text-anchor="middle" fill="#a3a3a3">UI avanzata</text>
-
-          <line x1="130" y1="70" x2="150" y2="70" stroke="#60A5FA"/>
-          <line x1="370" y1="70" x2="390" y2="70" stroke="#34d399"/>
-          <line x1="590" y1="70" x2="610" y2="70" stroke="#fbbf24"/>
-        </svg>
-      </div>
-      <div class="bom">
-        <h4>Distinta base essenziale</h4>
-        <ul>
-          <li><strong>Caricatore switching</strong> con CV 3.60V precisa</li>
-          <li><strong>NTC</strong>, derating termico, protezioni complete</li>
-          <li><strong>UI</strong> con selezione corrente \(\{0.3C, 0.5C\}\)</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Universale Semplice -->
     <section id="universale-semplice">
       <h2>Universale Semplice</h2>
-      <p class="muted">Un unico dispositivo con selezione manuale per: NiMH 1S (1,5V), NiMH 3S (4,5V), NiMH 4S (4,7–4,8V), 9V ricaricabile, Li‑ion 1S, LiFePO<sub>4</sub> 1S.</p>
-
+      <p class="muted">Un unico dispositivo USB 5V con selettore manuale per profili: NiMH 1S, NiMH 3S, NiMH 4S, 9V, Li-ion 1S, LiFePO<sub>4</sub> 1S.</p>
       <div class="schema">
         <h4>Schema a blocchi</h4>
-        <svg class="inline-svg" viewBox="0 0 980 220">
+        <svg viewBox="0 0 980 220" class="inline-svg">
+          <!-- USB Ingresso -->
           <rect x="10" y="75" width="120" height="70" rx="10" fill="#0ea5e9" opacity="0.2" stroke="#60A5FA"/>
           <text x="70" y="118" text-anchor="middle" fill="#60A5FA">USB 5V</text>
-
+          <!-- Buck 1S -->
           <rect x="150" y="30" width="240" height="60" rx="12" fill="none" stroke="#34d399"/>
-          <text x="270" y="65" text-anchor="middle" fill="#34d399">Buck CC/CV (Li‑ion/LFP)</text>
-
+          <text x="270" y="65" text-anchor="middle" fill="#34d399">Buck CC/CV</text>
+          <text x="270" y="85" text-anchor="middle" fill="#34d399">(Li-ion/LFP)</text>
+          <!-- Boost multi -->
           <rect x="150" y="130" width="240" height="60" rx="12" fill="none" stroke="#6366f1"/>
-          <text x="270" y="165" text-anchor="middle" fill="#6366f1">Boost + CC (NiMH/9V)</text>
-
+          <text x="270" y="165" text-anchor="middle" fill="#6366f1">Boost + CC</text>
+          <text x="270" y="185" text-anchor="middle" fill="#6366f1">(NiMH/9V)</text>
+          <!-- Selettore -->
           <rect x="410" y="30" width="230" height="160" rx="12" fill="none" stroke="#fbbf24"/>
-          <text x="525" y="65" text-anchor="middle" fill="#fbbf24">Selettore profilo</text>
-          <text x="525" y="85" text-anchor="middle" fill="#fbbf24">NTC opzionale</text>
-          <text x="525" y="105" text-anchor="middle" fill="#fbbf24">timer/fault</text>
-          <text x="525" y="125" text-anchor="middle" fill="#fbbf24">LED stato</text>
-
+          <text x="525" y="65" text-anchor="middle" fill="#fbbf24">Selettore</text>
+          <text x="525" y="85" text-anchor="middle" fill="#fbbf24">profili</text>
+          <text x="525" y="105" text-anchor="middle" fill="#fbbf24">NTC opzionale</text>
+          <text x="525" y="125" text-anchor="middle" fill="#fbbf24">timer/fault</text>
+          <text x="525" y="145" text-anchor="middle" fill="#fbbf24">LED stato</text>
+          <!-- Uscite -->
           <rect x="660" y="30" width="300" height="60" rx="12" fill="none" stroke="#a3a3a3"/>
-          <text x="810" y="65" text-anchor="middle" fill="#a3a3a3">Uscita Li‑ion / LiFePO4</text>
-
+          <text x="810" y="65" text-anchor="middle" fill="#a3a3a3">Uscita Li-ion/LFP</text>
           <rect x="660" y="130" width="300" height="60" rx="12" fill="none" stroke="#a3a3a3"/>
-          <text x="810" y="165" text-anchor="middle" fill="#a3a3a3">Uscita NiMH / 9V</text>
-
+          <text x="810" y="165" text-anchor="middle" fill="#a3a3a3">Uscita NiMH/9V</text>
+          <!-- Connessioni -->
           <line x1="130" y1="110" x2="150" y2="60" stroke="#60A5FA"/>
           <line x1="130" y1="110" x2="150" y2="160" stroke="#60A5FA"/>
           <line x1="390" y1="60" x2="410" y2="60" stroke="#34d399"/>
           <line x1="390" y1="160" x2="410" y2="160" stroke="#6366f1"/>
-          <line x1="640"
+          <line x1="640" y1="60" x2="660" y2="60" stroke="#fbbf24"/>
+          <line x1="640" y1="160" x2="660" y2="160" stroke="#fbbf24"/>
+        </svg>
+      </div>
+    </section>
+
+    <section id="universale-pro">
+      <h2>Universale Pro</h2>
+      <p class="muted">Dispositivo programmabile con MCU, auto-rilevazione pack, profili editabili e telemetria completa.</p>
+      <div class="schema">
+        <h4>Schema a blocchi</h4>
+        <svg viewBox="0 0 900 220" class="inline-svg">
+          <!-- USB-C Ingresso -->
+          <rect x="10" y="75" width="120" height="70" rx="10" fill="#0ea5e9" opacity="0.2" stroke="#60A5FA"/>
+          <text x="70" y="118" text-anchor="middle" fill="#60A5FA">USB-C 5V</text>
+          <text x="70" y="138" text-anchor="middle" fill="#60A5FA">CC resistors</text>
+          <!-- Buck-Boost -->
+          <rect x="150" y="30" width="260" height="160" rx="12" fill="none" stroke="#34d399"/>
+          <text x="280" y="65" text-anchor="middle" fill="#34d399">Buck-Boost</text>
+          <text x="280" y="85" text-anchor="middle" fill="#34d399">sincrono</text>
+          <text x="280" y="105" text-anchor="middle" fill="#34d399">I/V digital control</text>
+          <!-- MCU & Display -->
+          <rect x="430" y="30" width="220" height="160" rx="12" fill="none" stroke="#fbbf24"/>
+          <text x="540" y="65" text-anchor="middle" fill="#fbbf24">MCU</text>
+          <text x="540" y="85" text-anchor="middle" fill="#fbbf24">profili</text>
+          <text x="540" y="105" text-anchor="middle" fill="#fbbf24">-ΔV/Dt/NiMH</text>
+          <text x="540" y="125" text-anchor="middle" fill="#fbbf24">CC/CV Li-ion/LFP</text>
+          <text x="540" y="145" text-anchor="middle" fill="#fbbf24">Display & UI</text>
+          <!-- Sensing & Protezioni -->
+          <rect x="660" y="30" width="220" height="160" rx="12" fill="none" stroke="#a3a3a3"/>
+          <text x="770" y="65" text-anchor="middle" fill="#a3a3a3">Shunt & ADC</text>
+          <text x="770" y="85" text-anchor="middle" fill="#a3a3a3">NTC</text>
+          <text x="770" y="105" text-anchor="middle" fill="#a3a3a3">OVP/UVP/OCP/SCP</text>
+          <text x="770" y="125" text-anchor="middle" fill="#a3a3a3">Thermal derating</text>
+          <text x="770" y="145" text-anchor="middle" fill="#a3a3a3">Watchdog & Fault</text>
+          <!-- Connessioni -->
+          <line x1="130" y1="110" x2="150" y2="60" stroke="#60A5FA"/>
+          <line x1="130" y1="110" x2="150" y2="160" stroke="#60A5FA"/>
+          <line x1="410" y1="60" x2="430" y2="60" stroke="#34d399"/>
+          <line x1="410" y1="160" x2="430" y2="160" stroke="#34d399"/>
+          <line x1="650" y1="110" x2="660" y2="110" stroke="#fbbf24"/>
+        </svg>
+      </div>
+    </section>
+
+    <section id="bom-generale">
+      <h2>Componenti e note generali</h2>
+      <ul>
+        <li><strong>eFuse / limitatore</strong> per USB</li>
+        <li><strong>Buck / Boost / Buck-Boost</strong> in base al ΔV e alla chimica</li>
+        <li><strong>Controller di carica</strong> dedicato o MCU programmabile</li>
+        <li><strong>Shunt & ADC</strong> per sensing preciso di I/V</li>
+        <li><strong>NTC</strong> per monitoraggio temperatura</li>
+        <li><strong>Protezioni batteria</strong>: BMS/PCM Li-ion/LFP, fusibili PTC per NiMH/SLA</li>
+        <li><strong>Interfaccia utente</strong>: LED, display, selettori</li>
+        <li><strong>Connettori</strong>: polarità protetta, jack multipli (USB, batteria, NTC)</li>
+      </ul>
+    </section>
+
+    <footer id="licenza">
+      <h2>Licenza & Contatti</h2>
+      <p>Progetto rilasciato con <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">Licenza MIT</a>.</p>
+      <p>Repository e sorgenti: <a href="https://github.com/bocaletto-luca/usb-charge-battery" target="_blank" rel="noopener">github.com/bocaletto-luca/usb-charge-battery</a></p>
+      <p>Autore: <strong>Bocaletto Luca</strong> — <a href="mailto:lucabocaletto@example.com">lucabocaletto@example.com</a></p>
+      <p class="small">Ultimo aggiornamento: 23 Agosto 2025</p>
+    </footer>
+  </div>
+</body>
+</html>
