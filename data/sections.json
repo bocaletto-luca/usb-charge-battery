@@ -1,0 +1,114 @@
+[
+  {
+    "id": "nimh-1s",
+    "title": "NiMH Single Cell",
+    "description": "Standard nickel–metal hydride cell ideal for low-power USB applications.",
+    "nominalVoltage": "1.2 V",
+    "capacity": "2000 mAh",
+    "maxChargeCurrent": "200 mA",
+    "maxDischargeCurrent": "500 mA",
+    "dimensions": "14.2 × 50.5 mm (AA)",
+    "weight": "23 g",
+    "features": [
+      "Rechargeable up to 500 cycles",
+      "Low self-discharge",
+      "Wide operating temperature (–20 °C to 50 °C)"
+    ],
+    "imageUrl": "images/nimh-1s.png"
+  },
+  {
+    "id": "nimh-3s",
+    "title": "NiMH 3-Cell Pack",
+    "description": "Three-cell NiMH pack with integrated USB charging circuit.",
+    "nominalVoltage": "3.6 V",
+    "capacity": "1800 mAh",
+    "chargeVoltage": "4.2 V",
+    "chargeCurrent": "300 mA",
+    "dischargeCurrent": "500 mA",
+    "dimensions": "60 × 50 × 20 mm",
+    "weight": "80 g",
+    "features": [
+      "Built-in overcharge protection",
+      "Stackable design for higher capacity",
+      "Cycle life ≥ 500"
+    ],
+    "imageUrl": "images/nimh-3s.png"
+  },
+  {
+    "id": "li-ion-1s",
+    "title": "Li-ion Single Cell (18650)",
+    "description": "High-energy 18650 cell commonly used in power banks and flashlights.",
+    "nominalVoltage": "3.7 V",
+    "capacity": "2600 mAh",
+    "chargeVoltage": "4.2 V",
+    "maxChargeCurrent": "800 mA",
+    "maxDischargeCurrent": "2000 mA",
+    "dimensions": "18.6 × 65.2 mm",
+    "weight": "45 g",
+    "features": [
+      "High energy density",
+      "Low self-discharge",
+      "Cycle life ≥ 300"
+    ],
+    "imageUrl": "images/li-ion-1s.png"
+  },
+  {
+    "id": "li-ion-3s",
+    "title": "Li-ion 3-Cell Pack",
+    "description": "Three-cell lithium-ion pack for 12 V USB applications with built-in BMS.",
+    "nominalVoltage": "11.1 V",
+    "capacity": "2200 mAh",
+    "chargeVoltage": "12.6 V",
+    "maxChargeCurrent": "1000 mA",
+    "maxDischargeCurrent": "3000 mA",
+    "dimensions": "60 × 50 × 20 mm",
+    "weight": "140 g",
+    "features": [
+      "Integrated Battery Management System",
+      "Over-current and short-circuit protection",
+      "Lightweight aluminum enclosure"
+    ],
+    "imageUrl": "images/li-ion-3s.png"
+  },
+  {
+    "id": "lifepo4-3s",
+    "title": "LiFePO₄ 3-Cell Pack",
+    "description": "Robust lithium-iron phosphate pack offering long life and thermal stability.",
+    "nominalVoltage": "9.6 V",
+    "capacity": "2000 mAh",
+    "chargeVoltage": "10.8 V",
+    "maxChargeCurrent": "500 mA",
+    "maxDischargeCurrent": "1500 mA",
+    "dimensions": "60 × 50 × 20 mm",
+    "weight": "125 g",
+    "features": [
+      "Thermal runaway resistance",
+      "Cycle life ≥ 2000",
+      "Stable voltage under load"
+    ],
+    "imageUrl": "images/lifepo4-3s.png"
+  },
+  {
+    "id": "universal-charger",
+    "title": "Universal USB Charger Module",
+    "description": "Adjustable USB-powered charger for NiMH, NiCd, and Li-ion cells.",
+    "inputVoltage": "5 V USB",
+    "outputs": [
+      "NiMH/NiCd: 1.2–4.2 V",
+      "Li-ion: 4.2 V"
+    ],
+    "chargeCurrentModes": [
+      "200 mA",
+      "500 mA",
+      "1000 mA"
+    ],
+    "features": [
+      "Automatic cell detection",
+      "LED status indicators",
+      "Short-circuit and overcharge protection"
+    ],
+    "dimensions": "50 × 30 × 10 mm",
+    "weight": "20 g",
+    "imageUrl": "images/universal-charger.png"
+  }
+]
